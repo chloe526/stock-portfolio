@@ -29,9 +29,10 @@ describe("StockPortfolio", () => {
     const portfolio = new StockPortfolio();
 
     portfolio.purchase("DISNEY", 2);
-    portfolio.sell("DISNEY", 5);
 
-    expect(portfolio.getShares("DISNEY")).toBe(-3);
+    expect(() => portfolio.sell("DISNEY", 5)).toThrow(
+      "Not possible to sell this number of shares.",
+    );
   });
 
   // 2.5
@@ -72,8 +73,9 @@ describe("StockPortfolio", () => {
     const portfolio = new StockPortfolio();
 
     portfolio.purchase("DISNEY", 5);
-    portfolio.sell("DISNEY", 6);
 
-    expect(portfolio.getShares("DISNEY")).toBe(5);
+    expect(() => portfolio.sell("DISNEY", 6)).toThrow(
+      "Not possible to sell this number of shares.",
+    );
   });
 });

@@ -18,8 +18,10 @@ class StockPortfolio {
 
     if (remaining === 0) {
       this.stocks.delete(symbol);
-    } else {
+    } else if (remaining > currentlyOwned) {
       this.stocks.set(symbol, remaining);
+    } else {
+      throw new Error("Not possible to sell this number of shares.");
     }
   }
 
