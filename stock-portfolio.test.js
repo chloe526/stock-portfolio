@@ -33,4 +33,15 @@ describe("StockPortfolio", () => {
 
     expect(portfolio.stocks.get("DISNEY")).toBe(-3);
   });
+
+  // 2.6
+  test("unique ticket symbols", () => {
+    const portfolio = new StockPortfolio();
+
+    portfolio.purchase("DISNEY", 5);
+    portfolio.purchase("TIKTOK", 10);
+    portfolio.sell("TIKTOK", 10);
+
+    expect(portfolio.getUniqueSymbols()).toBe(1);
+  });
 });

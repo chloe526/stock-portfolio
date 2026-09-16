@@ -16,6 +16,10 @@ class StockPortfolio {
     const currentlyOwned = this.stocks.get(symbol) ?? 0;
     this.stocks.set(symbol, currentlyOwned - numberOfShares);
   }
+
+//   getUniqueTickets() {
+
+//   }
 }
 
 module.exports = StockPortfolio;
