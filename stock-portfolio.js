@@ -13,8 +13,14 @@ class StockPortfolio {
   }
 
   sell(symbol, numberOfShares) {
-    const currentlyOwned = this.stocks.get(symbol) ?? 0;
-    this.stocks.set(symbol, currentlyOwned - numberOfShares);
+    const currentlyOwned = this.stocks.get(symbol);
+    const remaining = currentlyOwned - numberOfShares;
+
+    if (remaining === 0) {
+      this.stocks.delete(symbol);
+    } else {
+      this.stocks.set(symbol, remaining);
+    }
   }
 
   getUniqueSymbols() {
