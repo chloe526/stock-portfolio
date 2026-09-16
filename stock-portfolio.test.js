@@ -31,7 +31,7 @@ describe("StockPortfolio", () => {
     portfolio.purchase("DISNEY", 2);
     portfolio.sell("DISNEY", 5);
 
-    expect(portfolio.stocks.get("DISNEY")).toBe(-3);
+    expect(portfolio.getShares("DISNEY")).toBe(-3);
   });
 
   // 2.5
@@ -65,5 +65,15 @@ describe("StockPortfolio", () => {
 
     expect(portfolio.getShares("DISNEY")).toBe(0);
     expect(portfolio.getShares("TIKTOK")).toBe(3);
+  });
+
+  // 2.8
+  test("sell limit", () => {
+    const portfolio = new StockPortfolio();
+
+    portfolio.purchase("DISNEY", 5);
+    portfolio.sell("DISNEY", 6);
+
+    expect(portfolio.getShares("DISNEY")).toBe(5);
   });
 });
