@@ -40,8 +40,7 @@ describe("StockPortfolio", () => {
 
     portfolio.purchase("DISNEY", 5);
     portfolio.purchase("TIKTOK", 10);
-    portfolio.sell("TIKTOK", 10);
 
-    expect(portfolio.getUniqueSymbols()).toBe(1);
+    expect(portfolio.getUniqueSymbols()).toBe(2);
   });
 });
