@@ -50,8 +50,20 @@ describe("StockPortfolio", () => {
 
     portfolio.purchase("DISNEY", 5);
     portfolio.sell("DISNEY", 5);
-    portfolio.purchase("TIKTOK", 3)
+    portfolio.purchase("TIKTOK", 3);
 
     expect(portfolio.getUniqueSymbols()).toBe(1);
+  });
+
+  // 2.7
+  test("shares per symbol - zero and nonzero", () => {
+    const portfolio = new StockPortfolio();
+
+    portfolio.purchase("DISNEY", 5);
+    portfolio.sell("DISNEY", 5);
+    portfolio.purchase("TIKTOK", 3);
+
+    expect(portfolio.getShares("DISNEY")).toBe(0);
+    expect(portfolio.getShares("TIKTOK")).toBe(3);
   });
 });

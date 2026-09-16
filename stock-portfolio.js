@@ -26,6 +26,10 @@ class StockPortfolio {
   getUniqueSymbols() {
     return this.stocks.size;
   }
+
+  getShares(symbol) {
+    return this.stocks.get(symbol) ?? 0;
+  }
 }
 
 module.exports = StockPortfolio;
