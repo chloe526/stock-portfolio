@@ -1,4 +1,4 @@
-const StockPortfolio = require("./stockPortfolio");
+const StockPortfolio = require("./stock-portfolio");
 
 describe("StockPortfolio", () => {
   test("create stock portfolio", () => {
